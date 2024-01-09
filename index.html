@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JavaScript exercises - Array</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container py-5">
+      
+      <form class="row gy-3 align-items-center py-3">
+        <!-- 0A. Lấy phần tử bằng ID -->
+        <div class="col-12 col-lg-6 mb-1">
+          <input
+            type="number"
+            class="form-control form__input"
+            id="inputNum"
+            placeholder="Nhập số n"
+          />
+        </div>
+        <!-- 0B. Nhập phần tử của mảng -->
+        <div class="col-12 col-lg-6">
+          <button
+            class="btn btn-primary me-1 mb-1"
+            type="button"
+            onclick="addItem()"
+          >
+            Thêm số
+          </button>
+        </div>
+        <div class="alert alert-success w-25" role="alert" id="txtArray"></div>
+      </form>
+
+      <!-- 01. Tính tổng số dương trong mảng -->
+      <form class="row gy-3 align-items-center px-2">
+        <h2>01. Tổng số dương</h2>
+        <div class="col-12">
+          <button
+            class="btn btn-primary me-1 mb-1"
+            type="button"
+            onclick="calcSumPosNos()"
+          >
+            Tính tổng
+          </button>
+        </div>
+        <div class="alert alert-success w-25" role="alert" id="txtSum">
+        </div>
+      </form>
+      
+      <!-- 02. Tính số lượng số dương trong mảng -->
+      <form class="row gy-3 align-items-center px-2">
+        <h2>02. Đếm số dương</h2>
+        <div class="col-12">
+          <button
+            class="btn btn-primary me-1 mb-1"
+            type="button"
+            onclick="countPosNos()"
+          >
+            Đếm số
+          </button>
+        </div>
+        <div class="alert alert-success w-25" role="alert" id="txtCount">
+        </div>
+      </form>
+      
+      <!-- 03. Tìm số nhỏ nhất trong mảng -->
+      <form class="row gy-3 align-items-center px-2">
+        <h2>03. Tìm số nhỏ nhất</h2>
+        <div class="col-12">
+          <button
+            class="btn btn-primary me-1 mb-1"
+            type="button"
+            onclick="findMin()"
+          >
+            Tìm số nhỏ nhất
+          </button>
+        </div>
+        <div class="alert alert-success w-25" role="alert" id="txtMin">
+        </div>
+      </form>
+      
+      <!-- 04. Tìm số dương nhỏ nhất trong mảng -->
+      <form class="row gy-3 align-items-center px-2">
+        <h2>04. Tìm số dương nhỏ nhất</h2>
+        <div class="col-12">
+          <button
+            class="btn btn-primary me-1 mb-1"
+            type="button"
+            onclick="findMinPos()"
+          >
+            Tìm số dương nhỏ nhất
+          </button>
+        </div>
+        <div class="alert alert-success w-25" role="alert" id="txtMinPos">
+        </div>
+      </form>
+      
+      <!-- 05. Tìm số chẵn cuối cùng trong mảng (nếu mảng không có giá trị chẵn thì trả về -1) -->
+      <form class="row gy-3 align-items-center px-2">
+        <h2>05. Tìm số chẵn cuối cùng</h2>
+        <div class="col-12">
+          <button
+            class="btn btn-primary me-1 mb-1"
+            type="button"
+            onclick="findLastEvenNo()"
+          >
+            Tìm số chẵn
+          </button>
+        </div>
+        <div class="alert alert-success w-25" role="alert" id="txtEven">
+        </div>
+      </form>
+      
+      <!-- 06. Đổi chỗ 2 giá trị trong mảng theo vị trí -->
+      <form class="row gy-3 align-items-center px-2">
+        <h2>06. Đổi chỗ</h2>
+        <div class="col-12 col-lg-6">
+          <input
+            type="number"
+            class="form-control form__input  mb-1"
+            id="inputIndexA"
+            placeholder="Nhập số vị trí 1"
+          />
+        </div>
+        <div class="col-12 col-lg-6">
+          <input
+            type="number"
+            class="form-control form__input mb-1"
+            id="inputIndexB"
+            placeholder="Nhập số vị trí 2"
+          />
+        </div>
+        <div class="col-12">
+          <button
+            class="btn btn-primary me-1 mb-1"
+            type="button"
+            onclick="swapNdisplay()"
+          >
+            Đổi chỗ
+          </button>
+        </div>
+        <div class="alert alert-success w-25" role="alert" id="txtChangePos">
+        </div>
+      </form>
+      
+      <!-- 07. Sắp xếp mảng theo thứ tự tăng dần -->
+      <form class="row gy-3 align-items-center px-2">
+        <h2>07. Sắp xếp tăng dần</h2>
+        <div class="col-12">
+          <button
+            class="btn btn-primary me-1 mb-1"
+            type="button"
+            onclick="sortAscending()"
+          >
+            Sắp xếp
+          </button>
+        </div>
+        <div class="alert alert-success w-25" role="alert" id="txtIncrease">
+        </div>
+      </form>
+
+      <!-- 08. Tìm số nguyên tố đầu tiên trong mảng (nếu mảng không có số nguyên tố thì trả về -1) -->
+      <form class="row gy-3 align-items-center px-2">
+        <h2>08. Tìm số nguyên tố đầu tiên</h2>
+        <div class="col-12">
+          <button
+            class="btn btn-primary me-1 mb-1"
+            type="button"
+            onclick="findPrime()"
+          >
+            Tìm số nguyên tố
+          </button>
+        </div>
+        <div class="alert alert-success w-25" role="alert" id="txtPrime">
+        </div>
+      </form>
+      
+      <!-- 09. Tìm số lượng số nguyên có trong mảng (sau khi nhập thêm một mảng số thực) -->
+      <form class="row gy-3 align-items-center py-3">
+        <h2>09. Đếm số nguyên</h2>
+        <div class="col-12 col-lg-6">
+          <input
+            type="number"
+            class="form-control form__input mb-1"
+            id="inputFloat"
+            placeholder="Nhập số"
+          />
+        </div>
+        <div class="col-12 col-lg-6">
+          <button
+            class="btn btn-primary me-1 mb-1"
+            type="button"
+            onclick="getFloat()"
+          >
+            Thêm số
+          </button>
+        </div>
+        <div class="alert alert-success w-25" role="alert" id="txtArrayFloat">
+        </div>
+        <div class="col-12 col-lg-6">
+          <button
+            class="btn btn-primary me-1 mb-1"
+            type="button"
+            onclick="countIntegers()"
+          >
+            Đếm số nguyên
+          </button>
+        </div>
+        <div class="alert alert-success w-25" role="alert" id="txtInt">
+        </div>
+      </form>
+      
+      <!-- 10. So sánh số lượng số dương và số lượng số âm -->
+      <form class="row gy-3 align-items-center px-2">
+        <h2>10. So sánh số lượng số âm và dương</h2>
+        <div class="col-12">
+          <button
+            class="btn btn-primary me-1 mb-1"
+            type="button"
+            onclick="compareNum()"
+          >
+            So sánh
+          </button>
+        </div>
+        <div class="alert alert-success w-25" role="alert" id="txtCompare">
+        </div>
+      </form>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
